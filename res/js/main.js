@@ -1,5 +1,7 @@
 let lang1text = document.getElementById("lang1text");
-lang1text.oninput = function () {
+lang1text.oninput = change;
+
+function change() {
     document.getElementById("lang1max").innerHTML = lang1text.value.length;
 }
 
@@ -18,6 +20,7 @@ langSwitch.onclick = function () {
     lang2text.value = switcherText;
     langSwitch.style.transform = "rotate(" + r + "deg)";
     r += 360;
+    change();
 }
 
 let theme = true;
