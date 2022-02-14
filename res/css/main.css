@@ -1,198 +1,236 @@
-@import "fonts.css";
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 :root {
-    --color-hue: 230; /* default: 249 */
-    --background-primary: hsl(var(--color-hue), 100%, 73%);
-    --background-secondary: hsl(var(--color-hue), 53%, 54%);
+    --main-color: #2a91f7;
+    --main-dark: #9a9a9b;
+    --main-black: black;
+    --background: #f5f8fb;
+    --background-bg1: #f5f7fb;
+    --background-bg2: #f3f6fa;
+    --background-bg3: #318bf7;
+    --background-bg4: #5daef1;
+    --shadow: rgba(0,0,0,.15);
+    --shadow-hover: rgba(0,0,0,.2);
+    --transition: cubic-bezier(.25,.75,.5,1.25) .2s;
+}
 
-    --colors-lighter: hsl(var(--color-hue), 100%, 98%);
-    --colors-darker: rgba(0, 0, 0, .25);
-
-    --transition: cubic-bezier(.17,.67,.49,.85);
+* {
+    font-family: 'Lato', sans-serif;
+    box-sizing: border-box;
+    color: var(--main-dark);
 }
 
 a {
     text-decoration: none;
+    cursor: pointer;
 }
 
-html {
+html, body {
     width: 100%;
-    height: 100%;
-    padding: 0;
     margin: 0;
-    background: var(--background-primary);
-    background: linear-gradient(150deg, var(--background-primary) 0%, var(--background-secondary) 100%);
-    display: flex;
+    background: var(--background);
 }
 
 body {
-    padding: 40px;
-    width: 1300px;
-    margin: 0 auto;
+    background: var(--background-bg1);
+    background: -moz-linear-gradient(0deg, var(--background-bg1) 0%, var(--background-bg2) 100%);
+    background: -webkit-linear-gradient(0deg, var(--background-bg1) 0%, var(--background-bg2) 100%);
+    background: linear-gradient(0deg, var(--background-bg1) 0%, var(--background-bg2) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="var(--background-bg1)",endColorstr="var(--background-bg2)",GradientType=1);
+    height: 100%;
 }
 
-#container {
-    width: 100%;
+#themeButton {
+    float: right;
 }
 
-.header, .content, .footer {
-    width: 100%;
-    position: relative;
+.block {
+    box-shadow: 0 3px 20px var(--shadow);
+    background: var(--background);
+    border-radius: 20px;
+    transition: var(--transition);
+}
+
+.block:hover {
+    box-shadow: 0 3px 25px var(--shadow-hover);
+}
+
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .header {
-    padding-bottom: 40px;
-}
-
-.header > a, .header {
-    color: var(--colors-lighter);
-}
-
-.header > a {
-    font-size: 32px;
-    font-family: 'Dosin', sans-serif;
-    font-weight: 700;
-    border-spacing: 0;
-    margin: 0;
-}
-
-.header > span {
-    font-family: 'Spline Sans', sans-serif;
-    font-weight: 200;
-    opacity: .7;
-    transition: var(--transition) .2s;
-    padding-left: 3px;
-}
-
-.header > a > i {
-    background: var(--colors-darker);
-    color: var(--colors-lighter);
-    aspect-ratio: 1 / 1;
-    padding: 8px;
-    border-radius: 8px;
+    padding: 20px 24px;
+    font-weight: 600;
+    font-size: 22px;
 }
 
 .header > a > span {
-    position: relative;
-    top: 5px;
-}
-
-.header:hover > span {
-    opacity: 1;
-    position: relative;
+    color: var(--main-color);
 }
 
 .content {
-    float: left;
-    border-radius: 20px;
-    background: var(--colors-lighter);
-    box-shadow: 0 2px 20px var(--colors-darker);
+    width: 1280px;
+    display: flex;
+    margin: 5px auto;
+    position: relative;
 }
 
-.content > textarea {
-    padding: 30px;
+.selections {
+    position: relative;
+    top: 20px;
+    width: 380px;
+    display: flex;
+    margin: 0 auto;
+    z-index: 8;
+}
+
+.selections > select {
     width: 50%;
-    height: 500px;
-    float: left;
+    padding: 12px 10px;
+    font-size: 18px;
+    font-weight: 700;
     background: transparent;
     border: none;
     outline: none;
-    resize: none;
-    font-family: 'Spline Sans', sans-serif;
-    font-size: 20px;
-    box-sizing: border-box;
-}
-
-.content > textarea:nth-child(1) {
-    border-right: 1px solid var(--colors-darker);
-}
-
-.content > textarea:nth-child(2) {
-    border-left: 1px solid var(--colors-darker);
-}
-
-.content > select {
-    font-family: 'Spline Sans', sans-serif;
-    background: var(--background-primary);
-    border: none;
-    color: white;
-    text-align: center;
-    cursor: pointer;
-    outline: none;
     appearance: none;
-    transition: var(--transition) .2s;
+    cursor: pointer;
+    text-align: center;
+    transition: var(--transition);
 }
 
-.content > select:hover {
-    background: var(--colors-darker);
+.selections > select:hover {
+    color: var(--main-black);
 }
 
-.language1 {
-    width: 160px;
-    height: 50px;
-    position: absolute;
-    right: 50%;
+.selections > select:nth-child(1) {
+    border-radius: 20px 0 0 20px;
+}
+
+.selections > select:nth-child(3) {
+    border-radius: 0 20px 20px 0;
+}
+
+svg {
+    width: 20px;
+    cursor: pointer;
+    transition: var(--transition);
+    fill: var(--main-black);
+}
+
+.inner, .outter {
+    width: 50%;
+    float: left;
+}
+
+.outter {
+    background: var(--background-bg3);
+    background: -moz-linear-gradient(321deg, var(--background-bg3) 0%, var(--background-bg4) 100%);
+    background: -webkit-linear-gradient(321deg, var(--background-bg3) 0%, var(--background-bg4) 100%);
+    background: linear-gradient(321deg, var(--background-bg3) 0%, var(--background-bg4) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="var(--background-bg3)",endColorstr="var(--background-bg4)",GradientType=1);
+    border-radius: 0 20px 20px 0;
+}
+
+.outter > textarea {
+    color: var(--background);
+}
+
+.outter > textarea::placeholder {
+    color: white;
+}
+
+.inner > span {
+    padding: 0 0 20px 30px;
+    float: left;
+    font-weight: 600;
+}
+
+.content > div > textarea {
+    width: 100%;
+    height: 400px;
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 20px;
+    padding: 0 30px;
+    margin: 30px 0;
+    resize: none;
+}
+
+.footer {
+    position: relative;
+    width: 100%;
     bottom: 0;
-    border-right: 1px solid white !important;
-    border-top-left-radius: 10px;
+    text-align: center;
+    padding: 24px;
 }
 
-.language2 {
-    width: 160px;
-    height: 50px;
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    border-left: 1px solid white !important;
-    border-top-right-radius: 10px;
-}
-
-@media only screen and (max-width: 900px) {
-    html {
-        height: auto;
-    }
-
-    .content > textarea {
+@media only screen and (max-width: 1280px) {
+    .content {
         width: 100%;
+        box-shadow: none;
+        background: transparent;
+        display: table;
     }
 
-    .content > textarea:nth-child(1) {
-        border-right: none;
-        border-bottom: 1px solid var(--colors-darker);
-        margin-bottom: 50px;
+    .content:hover {
+        box-shadow: none;
     }
 
-    .content > textarea:nth-child(2) {
-        border-left: none;
-        border-top: 1px solid var(--colors-darker);
+    #themeButton {
     }
 
-    .language1, .language2 {
-        top: 500px;
-        width: 50%;
-        border-radius: 0;
-    }
-}
-
-@media only screen and (max-width: 700px) {
     body {
         padding: 10px;
     }
 
+    html, body {
+        float: left;
+    }
+
+    textarea {
+        padding: 0 10px;
+        margin: 10px 0;
+    }
+
     .header {
-        padding-top: 20px;
         text-align: center;
+    }
+
+    .inner {
+        background: var(--background);
+    }
+
+    .inner, .outter {
+        width: 100%;
+        box-shadow: 0 3px 20px var(--shadow);
+        border-radius: 20px;
+        transition: var(--transition);
+        border: none;
+        margin-bottom: 20px;
+    }
+
+    .content > div > textarea {
+        height: 120px;
+    }
+
+    .footer {
+        padding: 10px;
     }
 }
 
-@media only screen and (max-width: 450px) {
-    body {
-        padding: 5px;
+@media only screen and (max-width: 500px) {
+    .selections {
+        width: 200px;
     }
-
-    .content > textarea {
-        font-size: 16px;
-        padding: 20px;
+    .selections > select {
+        font-size: 14px;
     }
-
 }
